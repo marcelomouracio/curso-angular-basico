@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NavItem } from './nav-item';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,18 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'curso-angular-basico';
+  titulo = 'Tour of Heroes';
+  itemsMenu: NavItem[] = [
+    {path: '/dashboard', text: 'Dashboard'},
+    {path: '/heroes', text: 'Heroes'},
+  ];
+
+  constructor() {
+    const token = localStorage.getItem('token');
+
+    if(!token) {
+      const randomToken = Math.random().toString(36).substr(-10);
+      localStorage.setItem('token', randomToken);
+    }
+  }
 }

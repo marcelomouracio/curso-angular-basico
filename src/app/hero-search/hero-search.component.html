@@ -1,0 +1,9 @@
+<app-search-input (search)="onSearch($event)"></app-search-input>
+
+<ul class="list-group">
+  <li class="list-group-item" *ngFor="let hero of heroes$ | async">
+    <a routerLink="heroes/{{ hero.id }}">
+      {{ hero.name }}
+    </a>
+  </li>
+</ul>
